@@ -1,0 +1,7 @@
+
+<li id="<%= dom_id room %>">
+  <p>
+    <strong>Room</strong>: <%= room.name %>
+  </p>
+  <%= link_to "Enter Room", room_path(room), data: { "turbo-frame": "room-modal" } %>
+</li>
