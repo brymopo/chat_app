@@ -1,0 +1,14 @@
+
+<li id="<%= dom_id room %>"
+    data-room-list-target="listItem"
+    class="p-4 w-1/2 flex justify-between bg-blue-50 border hover:bg-blue-300"
+>
+  <p>
+    <strong>Room</strong>: <%= room.name %>
+  </p>
+  <%= link_to "Enter Room",
+      room_path(room),
+      data: { "turbo-frame": "room-modal" },
+      class: "bg-green-500 rounded text-white font-bold px-2 inline-block"
+  %>
+</li>
