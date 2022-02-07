@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root "rooms#index"
-  resources :rooms, only: %i[index new create show]
+  resources :rooms, except: %i[destroy]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
