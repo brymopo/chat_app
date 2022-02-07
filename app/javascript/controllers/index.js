@@ -9,3 +9,6 @@ application.register("hello", HelloController)
 
 import RoomFormController from "./room_form_controller.js"
 application.register("room-form", RoomFormController)
+
+import RoomListController from "./room_list_controller.js"
+application.register("room-list", RoomListController)
