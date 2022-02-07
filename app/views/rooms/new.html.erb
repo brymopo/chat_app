@@ -1,12 +1,12 @@
 <%= turbo_frame_tag "room-form" do %>
 
-  <%= form_with model: @room do |f| %>
+  <%= form_with model: @room, data: { controller: "room-form", "room-form-target": "form" } do |f| %>
 
     <% @room.errors.full_messages_for(:name).each do |message| %>
-      <p class="text-red-500"><%= message %></p>
+      <p class="text-red-500" data-room-form-target="error"><%= message %></p>
     <% end %>
 
-    <%= f.text_field :name, class: "border-2" %>
+    <%= f.text_field :name, class: "border-2", data: { "room-form-target": "name" } %>
     <%= f.submit "Add new Room", class: "bg-blue-500 hover:bg-blue-700 text-white rounded px-3" %>
   <% end %>
 <% end %>
