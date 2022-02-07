@@ -2,12 +2,13 @@
 
 <%= turbo_stream_from "rooms" %>
 
-<ul id="rooms" >
-  <%= render @rooms if @rooms.present? %>
-</ul>
-
-<% if @rooms.blank? %>
-  <h2> There are no rooms yet </h2>
-<% end %>
+<div data-controller="room-list" data-room-list-hidden-class="hidden">
+  <ul id="rooms">
+    <%= render @rooms if @rooms.present? %>
+  </ul>
+  <h2 class="text-red-500" data-room-list-target="header">
+    There are no rooms yet
+  </h2>
+</div>
 
 <%= turbo_frame_tag "room-form", src: new_room_path %>
