@@ -7,6 +7,9 @@ import { application } from "./application"
 import HelloController from "./hello_controller.js"
 application.register("hello", HelloController)
 
+import ModalController from "./modal_controller.js"
+application.register("modal", ModalController)
+
 import RoomFormController from "./room_form_controller.js"
 application.register("room-form", RoomFormController)
 
