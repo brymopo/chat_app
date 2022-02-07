@@ -1,0 +1,11 @@
+<%= turbo_frame_tag "modal" do %>
+  <div
+    data-controller="modal"
+    class="w-screen h-screen z-10"
+  >
+    <div class="w-1/2 bg-gray-50"></div>
+    <div class="w-1/2 bg-blue-200">
+      <%= yield %>
+    </div>    
+  </div>  
+<% end %>
