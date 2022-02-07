@@ -1,0 +1,13 @@
+<h1> All Rooms!! </h1>
+
+<%= turbo_stream_from "rooms" %>
+
+<ul id="rooms" >
+  <%= render @rooms if @rooms.present? %>
+</ul>
+
+<% if @rooms.blank? %>
+  <h2> There are no rooms yet </h2>
+<% end %>
+
+<%= turbo_frame_tag "room-form", src: new_room_path %>
