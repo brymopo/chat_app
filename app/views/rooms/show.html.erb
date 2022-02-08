@@ -1,0 +1,17 @@
+<%= render "shared/modal" do %>
+  <div
+    class="bg-slate-200 w-4/5 h-4/5 mx-auto flex flex-col justify-center items-center rounded-3xl shadow-xl"
+  >
+    <h1 class="text-lg font-bold uppercase">
+      <%= @room.name %>
+    </h1>
+    
+    <%= turbo_stream_from "room_messages" %>
+    
+    <div id="room_messages">
+      <%= render @room.messages %>
+    </div>
+    
+    <%= turbo_frame_tag "messages_form", src: new_room_message_path(@room) %>
+  </div>
+<% end %>
