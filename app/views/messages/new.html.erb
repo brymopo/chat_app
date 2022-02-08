@@ -1,0 +1,6 @@
+<%= turbo_frame_tag "messages_form" do %>
+  <%= form_for [@room, @message] do |f| %>
+    <%= f.text_area :content %>
+    <%= f.submit %>
+  <% end %>
+<% end %>
