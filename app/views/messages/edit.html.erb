@@ -1,0 +1,8 @@
+<%= turbo_frame_tag "message_frame_#{@message.id}" do %>
+  <%= form_for [@room, @message] do |f| %>
+    <%= f.text_area :content %>
+    <%= f.submit "Edit",
+                 class: "w-[40px] text-center text-white bg-green-300 hover:bg-green-500 rounded-xl p-0.5 my-2"
+    %>
+  <% end %>
+<% end %>
