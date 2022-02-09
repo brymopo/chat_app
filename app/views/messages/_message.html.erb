@@ -1,0 +1,24 @@
+<div
+  id=<%= dom_id message %>
+  class="w-1/2 bg-green-100 rounded-sm my-1 px-1"
+>
+  <p class="font-bold">
+    <%= message.author %>:
+  </p>
+
+  <%= turbo_frame_tag "message_frame_#{message.id}" do %>
+    <p>
+      <%= message.content %>
+        <small class="block italic">
+          <%= message.edited? ?
+            "(edited): #{time_ago_in_words(message.updated_at)}":
+            time_ago_in_words(message.created_at) %> ago
+        </small>
+    </p>
+    <%=link_to "Edit",
+               edit_room_message_path(room_id: message.room_id, id: message.id),
+               class: "w-[40px] text-center block text-white bg-green-300 hover:bg-green-500 rounded-xl p-0.5 my-2",
+               data: { "turbo-frame": "message_frame_#{message.id}" }
+    %>
+  <% end %>
+</div>
