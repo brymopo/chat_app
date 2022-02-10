@@ -18,6 +18,10 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
+    respond_to do |format|      
+      format.html { }
+      format.turbo_stream {  }
+    end
   end
 
   private
