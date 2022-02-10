@@ -7,11 +7,11 @@
   <%= form_with model: @room do |f| %>
 
     <% @room.errors.full_messages_for(:name).each do |message| %>
-      <p class="text-red-500" data-room-form-target="error"><%= message %></p>
+      <p class="text-red-500"><%= message %></p>
     <% end %>
 
     <div class="my-3">
-      <%= f.text_field :name, class: "my-2 border-2", data: { "room-form-target": "name" }, autofocus: true %>
+      <%= f.text_field :name, class: "my-2 border-2", autofocus: true %>
       <%= f.submit "Add new Room", class: "block bg-blue-500 hover:bg-blue-700 text-white rounded px-3" %>
     </div>
   <% end %>
