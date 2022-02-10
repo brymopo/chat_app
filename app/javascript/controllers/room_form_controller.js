@@ -4,7 +4,7 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = [ "name", "form", "error" ]
 
-  connect() {
+/*   connect() {
     this.formTarget.addEventListener("turbo:submit-end", this.handleSubmit.bind(this));
   }
 
@@ -19,5 +19,5 @@ export default class extends Controller {
     } catch (error) {
       return;
     }
-  }
+  } */
 }

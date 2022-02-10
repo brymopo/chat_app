@@ -1,6 +1,10 @@
+<h1>
+  Create a new Room
+</h1>
+
 <%= turbo_frame_tag "room-form" do %>
 
-  <%= form_with model: @room, data: { controller: "room-form", "room-form-target": "form" } do |f| %>
+  <%= form_with model: @room do |f| %>
 
     <% @room.errors.full_messages_for(:name).each do |message| %>
       <p class="text-red-500" data-room-form-target="error"><%= message %></p>

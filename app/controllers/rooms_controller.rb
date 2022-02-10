@@ -13,6 +13,8 @@ class RoomsController < ApplicationController
 
     unless @room.save
       render new_room_path(@room)
+    else
+      redirect_to new_room_path
     end
   end
 
