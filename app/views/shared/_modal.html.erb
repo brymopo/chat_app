@@ -1,8 +1,6 @@
-<%= turbo_frame_tag "room-modal" do %>
-  <div
-    data-controller="modal"
-    class="w-[50vw] h-screen bg-blue-200 absolute top-0 right-0 z-10 flex justify-center items-center rounded-3xl shadow-xl"
-  >
-    <%= yield %>
-  </div>  
-<% end %>
+<div
+  data-controller="modal"
+  class="w-[50vw] h-screen bg-blue-200 absolute top-0 right-0 z-10 flex justify-center items-center rounded-3xl shadow-xl"
+>
+  <%= yield %>
+</div>  
