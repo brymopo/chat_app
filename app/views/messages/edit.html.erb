@@ -1,4 +1,4 @@
-<%= turbo_frame_tag "message_frame_#{@message.id}" do %>
+<%= turbo_frame_tag @message do %>
   <%= form_for [@room, @message] do |f| %>
     <%= f.text_area :content %>
     <%= f.submit "Edit",
