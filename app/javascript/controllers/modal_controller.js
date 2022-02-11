@@ -17,7 +17,7 @@ export default class extends Controller {
     if(this.isModalOpen) {
       this.modalBodyTarget.classList.add("hidden");
     }
-    this.resetModal();
+    this.resetModalFrame();
   }
 
   isModalClosed(){
@@ -31,7 +31,7 @@ export default class extends Controller {
   resetModalFrame(){
     const modalFrame = document.getElementById("room-modal");
     if(modalFrame){
-      modalFrame.setAttribute("src", undefined);
+      modalFrame.removeAttribute("src");
       while(modalFrame.firstChild){
         modalFrame.firstChild.remove();
       }
