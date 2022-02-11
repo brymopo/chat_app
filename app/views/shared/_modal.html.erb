@@ -1,6 +1,12 @@
-<div
-  data-controller="modal"
-  class="w-[50vw] h-screen bg-blue-200 absolute top-0 right-0 z-10 flex justify-center items-center rounded-3xl shadow-xl"
+<div  
+  data-modal-target="modalBody"
+  class="hidden w-[50vw] h-screen bg-blue-200 absolute top-0 right-0 z-10 rounded-3xl shadow-xl p-4"
 >
+  <button
+    class="block bg-red-400 hover:bg-red-600 w-[25px] h-[25px] rounded-lg font-bold text-white text-center"
+    data-action="click->modal#hideModal"
+  >
+    x
+  </button>
   <%= yield %>
 </div>  
