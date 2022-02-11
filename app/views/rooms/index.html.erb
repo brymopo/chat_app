@@ -1,5 +1,11 @@
 <h1> All Rooms!! </h1>
 
+<h2>
+  There is no user.
+  <%= link_to "Create a user", new_user_path, data: { "turbo-frame": "room-modal" } %>
+</h2>
+ 
+
 <%= turbo_stream_from "rooms" %>
 
 <div data-controller="room-list" data-room-list-hidden-class="hidden">
