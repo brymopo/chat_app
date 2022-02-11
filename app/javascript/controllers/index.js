@@ -10,8 +10,5 @@ application.register("hello", HelloController)
 import ModalController from "./modal_controller.js"
 application.register("modal", ModalController)
 
-import RoomFormController from "./room_form_controller.js"
-application.register("room-form", RoomFormController)
-
 import RoomListController from "./room_list_controller.js"
 application.register("room-list", RoomListController)
