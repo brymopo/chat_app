@@ -2,7 +2,11 @@
 
 <h2>
   There is no user.
-  <%= link_to "Create a user", new_user_path, data: { "turbo-frame": "room-modal" } %>
+  <%=
+    link_to "Create a user",
+             new_user_path,
+             data: { "turbo-frame": "room-modal", action: "click->modal#showModal" }
+  %>
 </h2>
  
 
