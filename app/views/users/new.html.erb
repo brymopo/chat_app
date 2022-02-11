@@ -1,0 +1,25 @@
+<h1>
+  Create a new user!
+</h1>
+
+<%= turbo_frame_tag "room-modal" do %>
+  <%= form_with model: @user do |f| %>
+    <div>
+      <%= f.text_field :first_name %>
+      <%= f.label :first_name%>
+    </div>
+    <div>
+      <%= f.text_field :last_name %>
+      <%= f.label :last_name%>
+    </div>
+    <div>
+      <%= f.text_field :username %>
+      <%= f.label :username%>
+    </div>
+    <div>
+      <%= f.text_field :email %>
+      <%= f.label :email %>
+    </div>
+    <%= f.submit %>
+  <% end %>
+<% end %>
