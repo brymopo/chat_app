@@ -1,0 +1,25 @@
+<%= turbo_frame_tag "user_session_display" do %>
+  <div class="my-4">
+    <% if current_user.present? %>
+      <h2>
+        Hi <%= current_user.username %>
+      </h2>
+      <%= link_to "Log out", destroy_user_session_path %>
+    <% else %>
+      <h2>
+        There is no user.
+        <%=
+          link_to "Log in",
+                   new_user_session_path,
+                   data: { "turbo-frame": "room-modal", action: "click->modal#showModal" }
+        %>
+        or
+        <%=
+          link_to "Sign Up",
+                   new_user_registration_path,
+                   data: { "turbo-frame": "room-modal", action: "click->modal#showModal" }
+        %>
+      </h2>
+    <% end %>
+  </div>
+<% end %>
