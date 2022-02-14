@@ -9,7 +9,7 @@
     </h1>    
     
     <div
-      id=<%= "room_#{@room.id}_messages" %>
+      id=<%= "messages" %>
       class="w-full h-[70%] overflow-y-scroll mb-3 bg-white rounded-xl"
     >
       <%= render partial: "messages/message", collection: @room.messages %>
