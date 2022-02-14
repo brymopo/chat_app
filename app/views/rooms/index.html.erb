@@ -1,14 +1,6 @@
 <h1> All Rooms!! </h1>
 
-<h2>
-  There is no user.
-  <%=
-    link_to "Create a user",
-             new_user_path,
-             data: { "turbo-frame": "room-modal", action: "click->modal#showModal" }
-  %>
-</h2>
- 
+<%= render "users/user_logged" %> 
 
 <%= turbo_stream_from "rooms" %>
 
