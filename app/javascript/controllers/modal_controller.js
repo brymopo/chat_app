@@ -4,9 +4,6 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = [ "modalBody" ]
 
-  connect() {
-  }
-
   showModal(){
     if(this.isModalClosed()){
       this.modalBodyTarget.classList.remove("hidden");
@@ -36,5 +33,9 @@ export default class extends Controller {
         modalFrame.firstChild.remove();
       }
     }    
+  }
+
+  closeOnSubmit(){
+    this.hideModal();
   }
 }
