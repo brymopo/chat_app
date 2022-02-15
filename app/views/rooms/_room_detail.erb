@@ -12,7 +12,7 @@
       id=<%= "messages" %>
       class="w-full h-[70%] overflow-y-scroll mb-3 bg-white rounded-xl"
     >
-      <%= render partial: "messages/message", collection: @room.messages %>
+      <%= render partial: "messages/message", collection: @room.messages, locals: { user: current_user } %>
     </div>
     <%= turbo_frame_tag "messages_form", src: new_room_message_path(@room) %>
   </div>

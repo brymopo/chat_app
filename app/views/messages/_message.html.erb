@@ -17,10 +17,11 @@
             time_ago_in_words(message.created_at) %> ago
         </small>
     </p>
+    <% if user.present? && user.username.eql?(message.author)%>
     <%=link_to "Edit",
                edit_room_message_path(room_id: message.room_id, id: message.id),
                class: "w-[40px] text-center block text-white bg-green-300 hover:bg-green-500 rounded-xl p-0.5 my-2"
     %>
-  
+    <% end %>  
 </div>
 <% end %>
