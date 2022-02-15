@@ -1,17 +1,20 @@
 class MessagesController < ApplicationController
   before_action :set_room, only: %i[new edit create]
   before_action :set_message, only: %i[edit update]
+  before_action :set_current_user, only: %i[create update]
 
   def new
     @message = @room.messages.new
   end
 
   def create
-    @message = @room.messages.create(message_params)
+    author = current_user.present? ? current_user.username : nil
+    @message = @room.messages.create(message_params.merge(author: author))
 
     if @message.save
-      @message = @room.messages.new
+      @message = @room.messages.new     
     end
+    
     render :new
   end
 
@@ -36,5 +39,9 @@ class MessagesController < ApplicationController
 
     def message_params
       params.require(:message).permit(:content, :author)
+    end
+
+    def set_current_user
+      Current.user = current_user
     end
 end
