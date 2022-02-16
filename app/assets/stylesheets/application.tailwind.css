@@ -17,3 +17,15 @@
 .form__button{
   @apply bg-green-400 hover:bg-green-600 text-white py-2 px-4 font-bold rounded-xl shadow-xl;
 }
+
+.room__modal{
+  @apply bg-blue-400;
+  height: 90vh;
+}
+
+.room__messages{
+  height: 70vh;
+  min-height: 70vh;
+  background-color: white;
+  overflow-y: scroll;
+}
