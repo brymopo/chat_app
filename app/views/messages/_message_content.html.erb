@@ -1,0 +1,27 @@
+<div
+  class= "<%= "w-full flex #{is_current_user?(user: message.author, current: current_user) ? "justify-end" : "justify-start" }"%>"
+>
+  <div    
+    class="<%= "w-1/2 max-w-[400px] rounded-sm my-1 px-1 #{is_current_user?(user: message.author, current: current_user) ? "bg-emerald-600 text-white" : "bg-green-300"}" %>"
+  >
+    
+    <p class="font-bold">
+      <%= message.author %>:
+    </p>
+  
+    <p>
+      <%= message.content %>
+        <small class="block italic">
+          <%= message.edited? ?
+            "(edited): #{time_ago_in_words(message.updated_at)}":
+            time_ago_in_words(message.created_at) %> ago
+        </small>
+    </p>
+    <% if is_current_user?(user: message.author, current: current_user) %>
+      <%=link_to "Edit",
+                 edit_room_message_path(room_id: message.room_id, id: message.id),
+                 class: "w-[40px] text-center block text-white bg-blue-400 hover:bg-blue-600 rounded-xl p-0.5 my-2"
+      %>
+    <% end %>
+  </div>
+</div>
