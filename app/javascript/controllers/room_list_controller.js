@@ -1,4 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
+import { Turbo } from "@hotwired/turbo-rails";
 
 // Connects to data-controller="room-list"
 export default class extends Controller {

@@ -1,8 +1,16 @@
-<%= turbo_frame_tag "message_frame_#{@message.id}" do %>
+<%= turbo_frame_tag @message do %>
+  <div class="w-1/2 max-w-[400px] rounded-sm my-1 px-1 py-1 bg-yellow-500">
   <%= form_for [@room, @message] do |f| %>
-    <%= f.text_area :content %>
-    <%= f.submit "Edit",
-                 class: "w-[40px] text-center text-white bg-green-300 hover:bg-green-500 rounded-xl p-0.5 my-2"
-    %>
+    <%= f.text_area :content, class: "w-full" %>
+    <div>
+      <%= f.submit "Edit",
+                   class: "w-[40px] text-center text-white bg-blue-400 hover:bg-blue-600 rounded-xl p-0.5 my-2"
+      %>
+      <%= link_to "Cancel",
+                  room_message_path(room_id: @room.id, id: @message.id),
+                  class: "w-[40px] text-center text-white bg-red-400 hover:bg-red-600 rounded-xl p-0.5 my-2"
+      %>
+    </div>
   <% end %>
+  </div>
 <% end %>

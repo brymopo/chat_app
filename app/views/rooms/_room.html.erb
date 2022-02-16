@@ -8,7 +8,7 @@
   </p>
   <%= link_to "Enter Room",
       room_path(room),
-      data: { "turbo-frame": "room-modal" },
+      data: { "turbo-frame": "room-modal", action: "click->modal#showModal" },
       class: "bg-green-500 rounded text-white font-bold px-2 inline-block"
   %>
 </li>
