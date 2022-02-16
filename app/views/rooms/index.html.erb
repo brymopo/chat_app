@@ -1,5 +1,7 @@
 <h1> All Rooms!! </h1>
 
+<%= render "users/user_logged" %> 
+
 <%= turbo_stream_from "rooms" %>
 
 <div data-controller="room-list" data-room-list-hidden-class="hidden">

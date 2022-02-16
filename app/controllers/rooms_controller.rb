@@ -13,15 +13,14 @@ class RoomsController < ApplicationController
 
     unless @room.save
       render new_room_path(@room)
+    else
+      redirect_to new_room_path
     end
   end
 
   def show
     @room = Room.find(params[:id])
-    respond_to do |format|      
-      format.html { }
-      format.turbo_stream {  }
-    end
+    @messages = @room.messages.order(created_at: :asc)
   end
 
   private

@@ -3,7 +3,7 @@ import { Turbo } from "@hotwired/turbo-rails";
 
 // Connects to data-controller="room-list"
 export default class extends Controller {
-  static targets = ["header", "listItem", "roomLink"]
+  static targets = ["header", "listItem"]
   static classes = ["hidden"]
   observer = new MutationObserver((mutationsList, obs)=>{
     for (const mutation of mutationsList) {
@@ -16,9 +16,6 @@ export default class extends Controller {
   connect() {
     this.observer.observe(document.getElementById("rooms"), {childList: true});
     this.toggleHeader();
-    this.roomLinkTargets.forEach( targetLink => {
-      targetLink.addEventListener("click", this.fetchRoom);
-    })
   }
 
   toggleHeader(){
@@ -31,14 +28,5 @@ export default class extends Controller {
 
   showHeader(){
     this.headerTarget.classList.remove(this.hiddenClass);
-  }
-
-  fetchRoom(e){
-    e.preventDefault();
-    fetch(e.target.getAttribute("href"), {
-      headers: { Accept: "text/vnd.turbo-stream.html" }
-    })
-    .then( response => response.text())
-    .then( template => Turbo.renderStreamMessage(template) )
   }
 }
