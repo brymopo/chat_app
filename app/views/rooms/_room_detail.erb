@@ -1,19 +1,27 @@
-<div
-  class="room__modal rounded-3xl shadow-xl"
->
-  <%= turbo_stream_from @room %>
-
-  <div class="w-11/12 h-full mx-auto">
-    <h1 class="text-center text-lg font-bold uppercase">
-      <%= @room.name %>
-    </h1>    
-    
-    <div
-      id=<%= "messages" %>
-      class="room__messages my-3"
-    >
-      <%= render partial: "messages/message", collection: @messages, locals: { user: current_user } %>
+<% if current_user.present? %>
+  <div
+    class="room__modal rounded-3xl shadow-xl"
+  >
+    <%= turbo_stream_from @room %>
+  
+    <div class="w-11/12 h-full mx-auto">
+      <h1 class="text-center text-lg font-bold uppercase">
+        <%= @room.name %>
+      </h1>    
+      
+      <div
+        id=<%= "messages" %>
+        class="room__messages my-3"
+      >
+        <%= render partial: "messages/message", collection: @messages, locals: { user: current_user } %>
+      </div>
+      <%= turbo_frame_tag "messages_form", src: new_room_message_path(@room) %>
     </div>
-    <%= turbo_frame_tag "messages_form", src: new_room_message_path(@room) %>
   </div>
-</div>
+<% else %>
+  <div class="h-full flex justify-center items-center">
+    <h2 class="font-bold text-red-400">
+      Log in to enter this room!
+    </h2>
+  </div>
+<% end %>
