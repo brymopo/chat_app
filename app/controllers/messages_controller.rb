@@ -1,8 +1,8 @@
-class MessagesController < ApplicationController
+class MessagesController < ApplicationController  
   before_action :set_room, only: %i[new edit create]
-  before_action :set_message, only: %i[edit update]
+  before_action :set_message, only: %i[edit update show]
   before_action :set_current_user, only: %i[create update]
-
+  
   def new
     @message = @room.messages.new
   end
@@ -19,6 +19,9 @@ class MessagesController < ApplicationController
   end
 
   def edit
+  end
+
+  def show
   end
 
   def update
